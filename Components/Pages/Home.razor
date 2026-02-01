@@ -240,11 +240,18 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _teams.AddRange(new[]
+        var teamNames = await DataService.GetTeamsAsync();
+        _teams.Clear();
+        foreach (var name in teamNames)
         {
-new Team("Team Azure"),
-new Team("Team DevRel")
-});
+            _teams.Add(new Team(name));
+        }
+
+        if (_teams.Count == 0)
+        {
+            _teams.Add(new Team("Team Azure"));
+            _teams.Add(new Team("Team DevRel"));
+        }
 
         var board = await DataService.GetBoardAsync();
         _categories.Clear();

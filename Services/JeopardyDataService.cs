@@ -7,6 +7,7 @@ public sealed class JeopardyDataService
 {
     private readonly IWebHostEnvironment _environment;
     private JeopardyBoard? _cachedBoard;
+    private IReadOnlyList<string>? _cachedTeams;
 
     public JeopardyDataService(IWebHostEnvironment environment)
     {
@@ -35,6 +36,30 @@ public sealed class JeopardyDataService
 
         _cachedBoard = board ?? BuildFallbackBoard();
         return CloneBoard(_cachedBoard);
+    }
+
+    public async Task<IReadOnlyList<string>> GetTeamsAsync(CancellationToken cancellationToken = default)
+    {
+        if (_cachedTeams is not null)
+        {
+            return _cachedTeams.ToList();
+        }
+
+        var teamsPath = Path.Combine(_environment.WebRootPath, "data", "teams.json");
+        if (!File.Exists(teamsPath))
+        {
+            _cachedTeams = BuildFallbackTeams();
+            return _cachedTeams.ToList();
+        }
+
+        await using var stream = File.OpenRead(teamsPath);
+        var payload = await JsonSerializer.DeserializeAsync<TeamsPayload>(
+            stream,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true },
+            cancellationToken);
+
+        _cachedTeams = payload?.Teams?.Where(t => !string.IsNullOrWhiteSpace(t)).ToList() ?? BuildFallbackTeams();
+        return _cachedTeams.ToList();
     }
 
     private static JeopardyBoard CloneBoard(JeopardyBoard board)
@@ -127,5 +152,15 @@ public sealed class JeopardyDataService
                 }
             }
         };
+    }
+
+    private static IReadOnlyList<string> BuildFallbackTeams()
+    {
+        return new List<string> { "Team Azure", "Team DevRel" };
+    }
+
+    private sealed class TeamsPayload
+    {
+        public List<string>? Teams { get; set; }
     }
 }
