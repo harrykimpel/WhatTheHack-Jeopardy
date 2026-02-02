@@ -423,7 +423,7 @@
 
         var encoded = System.Net.WebUtility.HtmlEncode(text);
         encoded = encoded.Replace("\r\n", "\n");
-        encoded = encoded.Replace("\t", " ");
+        encoded = encoded.Replace("\t", "    ");
         return new MarkupString(encoded);
     }
 
