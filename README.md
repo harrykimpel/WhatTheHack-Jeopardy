@@ -5,6 +5,7 @@
 ## Prerequisites
 
 - .NET SDK 10.0 (or later)
+  - Download from: <https://dotnet.microsoft.com/en-us/download>
 - Optional: Visual Studio 2022/2025 or VS Code with the C# Dev Kit
 
 ## Getting Started
