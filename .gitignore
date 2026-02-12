@@ -27,3 +27,5 @@ obj/*
 .nuget/
 packages/
 .vscode/
+
+.DS_Store
