@@ -3,6 +3,6 @@
 
 // Record the team name and score as custom attributes in New Relic for better insights into user interactions and game performance
 function RecordTeamScore(team, score) {
-    newrelic.setCustomAttribute('WTHJeopardyTeam', team);
-    newrelic.setCustomAttribute('WTHJeopardyTeamScore', score);
+    // newrelic.setCustomAttribute('WTHJeopardyTeam', team);
+    // newrelic.setCustomAttribute('WTHJeopardyTeamScore', score);
 }

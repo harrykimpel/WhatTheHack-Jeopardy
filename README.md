@@ -25,7 +25,8 @@ To enable New Relic Browser monitoring for this application, follow these steps:
 3. Copy the New Relic Browser monitoring script provided by New Relic.
 4. Open the file [wwwroot/newrelic.js](wwwroot/newrelic.js) in a text editor.
 5. Paste the New Relic Browser monitoring script into the file, replacing the placeholder comment.
-6. Save the file.
+6. Uncomment the lines in the `RecordTeamScore` function to enable recording team names and scores as custom attributes in New Relic for better insights into user interactions and game performance.
+7. Save the file.
 
 ## Running the Game
 
