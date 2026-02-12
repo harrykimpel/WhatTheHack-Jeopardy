@@ -2,7 +2,11 @@
 
 ![What The Hack - Jeopardy](./wwwroot/images/WTH-Jeopardy.png)
 
-This is a simple Jeopardy-style game built with .NET 10 and ASP.NET Core Blazor. It can be used for fun team-building activities, educational purposes, or as a template for building more complex quiz games. The game features a customizable board with categories and point values, and allows players to select clues, reveal answers, and keep track of their scores. It also includes optional integration with New Relic Browser monitoring for insights into user interactions and game performance.
+This is a simple Jeopardy-style game built with .NET 10 and ASP.NET Core Blazor.
+
+It can be used for fun team-building activities, educational purposes, or as a template for building more complex quiz games. The game features a customizable board with categories and point values, and allows players to select clues, reveal answers, and keep track of their scores.
+
+It also includes optional integration with New Relic Browser monitoring for insights into user interactions and game performance.
 
 ## Prerequisites
 
