@@ -11,20 +11,39 @@
 
 1. Open a terminal in this folder.
 2. Restore dependencies:
-	 ```bash
-	 dotnet restore
-	 ```
-3. Run the app:
-	 ```bash
-	 dotnet run
-	 ```
-4. Open the URL shown in the terminal (typically `https://localhost:7xxx`).
+
+    ```bash
+    dotnet restore
+    ```
+
+## (optional) Configure New Relic Browser Monitoring
+
+To enable New Relic Browser monitoring for this application, follow these steps:
+
+1. Sign up for a New Relic account if you don't have one: <https://newrelic.com/signup>
+2. Create a New Relic Browser monitoring application in your New Relic account to get the monitoring script.
+3. Copy the New Relic Browser monitoring script provided by New Relic.
+4. Open the file [wwwroot/newrelic.js](wwwroot/newrelic.js) in a text editor.
+5. Paste the New Relic Browser monitoring script into the file, replacing the placeholder comment.
+6. Save the file.
+
+## Running the Game
+
+1. Run the app:
+
+    ```bash
+    dotnet run
+    ```
+
+2. Open the URL shown in the terminal (typically `https://localhost:7xxx`).
 
 ## Customizing the Game
 
 - Questions and answers live in [wwwroot/data/jeopardy-board.json](wwwroot/data/jeopardy-board.json).
-	- Prompts are the on-screen clues.
-	- Answers are the responses players should phrase as a question.
+
+  - Prompts are the on-screen clues.
+  - Answers are the responses players should phrase as a question.
+
 - Initial team names live in [wwwroot/data/teams.json](wwwroot/data/teams.json).
 
 ## Game Controls
@@ -37,6 +56,25 @@
 ## Troubleshooting
 
 - If the HTTPS dev certificate is missing, run:
-	```bash
-	dotnet dev-certs https --trust
-	```
+
+```bash
+dotnet dev-certs https --trust
+```
+
+## Screenshots
+
+### Setup View
+
+![Setup View](./Assets/WTH-Jeopardy-setup.png)
+
+### Start View
+
+![Start View](./Assets/WTH-Jeopardy-start.png)
+
+### Prompt View
+
+![Prompt View](./Assets/WTH-Jeopardy-prompt.png)
+
+### Winner View
+
+![Winner View](./Assets/WTH-Jeopardy-winner.png)
